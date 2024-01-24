@@ -22,8 +22,4 @@ sequenceDiagram
     browser->>server: data.json fetched using HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
     server-->>browser: server responds with data.json with status code 200 OK
 
-    NOTE over browser: User enters a new note
-    browser->>server: content is sent to server using HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
-    server-->>browser: server responds with status code 201 Created
-    NOTE over server: the content is sent to server with content-type headers of json format so server knows how to parse the content received.
 ```
