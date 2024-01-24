@@ -1,6 +1,7 @@
 # Exercise 0.4 | New note diagram
 ## Link: https://fullstackopen.com/en/part0/fundamentals_of_web_apps#exercises-0-1-0-6
 
+```mermaid
 sequenceDiagram
     participant browser
     participant server
@@ -26,3 +27,4 @@ sequenceDiagram
     server-->>browser: server sends data.json with status code 200 OK
 
     NOTE right of browser: browser executes js callback function which renders the notes
+```
