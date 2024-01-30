@@ -1,43 +1,31 @@
 import { useState } from 'react'
 
-const Display = ({counter}) => <div>{counter}</div>
-
-const Button = ({onClick, text}) => {
-  return (
-    <button onClick={onClick}>
-      {text}
-    </button>
-  )
-}
-
 const App = () => {
-  const [counter, setCounter] = useState(0)
-  console.log('renderring with counter value...', counter)
+  const [clicks, setClicks] = useState({left: 0, right: 0})
 
-  const increaseByOne = () => {
-    console.log('increasing, value before...', counter)
-    setCounter(counter+1)
+  const handleLeftCLick = () => {
+    const newClicks = {
+      left: clicks.left+1,
+      right: clicks.right
+    }
+    setClicks(newClicks)
   }
-  const decreaseByone = () => {
-    console.log('decreasing, value before...', counter)
-    setCounter(counter-1)
-  }
-  const setToZero = () => {
-    console.log('resetting value to zero, value before...', counter)
-    setCounter(0)
+
+  const handleRightCLick = () => {
+    const newClicks = {
+      left: clicks.left,
+      right: clicks.right+1
+    }
+    setClicks(newClicks)
   }
 
   return (
     <div>
-    <Display counter={counter} />
-    <br />
-    <Button onClick={increaseByOne} text='plus' />
-    <br />
-    <br />
-    <Button onClick={setToZero} text='zero' />
-    <br />
-    <br />
-    <Button onClick={decreaseByone} text='minus' />
+      {clicks.left}
+      <button onClick={handleLeftCLick}>left</button>
+      <span>  </span>
+      <button onClick={handleRightCLick}>right</button>
+      {clicks.right}
     </div>
   )
 }
